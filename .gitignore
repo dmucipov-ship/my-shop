@@ -1,0 +1,22 @@
+# Настройки окружения
+config.php
+config/config.php
+.env
+
+# Логи
+*.log
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
+
+# Composer
+vendor/
+
+# Дампы БД (кроме итогового)
+*.sql
+!sql/dump.sql

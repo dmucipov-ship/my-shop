@@ -1,0 +1,217 @@
+:root {
+    /* === ПЕРЕОПРЕДЕЛЯЕМ ЦВЕТА BOOTSTRAP === */
+
+    /* Основной цвет (кнопки primary, ссылки, активные элементы) */
+    --bs-primary: #6366f1;             /* индиго */
+    --bs-primary-rgb: 99, 102, 241;
+
+    /* Успех (кнопка "В корзину", "Добавить") */
+    --bs-success: #10b981;             /* изумрудный */
+    --bs-success-rgb: 16, 185, 129;
+
+    /* Опасность (удалить, ошибки) */
+    --bs-danger: #ef4444;              /* коралловый */
+    --bs-danger-rgb: 239, 68, 68;
+
+    /* Предупреждение (цены, акценты) */
+    --bs-warning: #f59e0b;             /* янтарный */
+    --bs-warning-rgb: 245, 158, 11;
+
+    /* Тёмный (навбар, подвал) */
+    --bs-dark: #1f2937;                /* графитовый */
+    --bs-dark-rgb: 31, 41, 55;
+
+    /* Фон и текст */
+    --bs-body-bg: #f8fafc;
+    --bs-body-color: #1e293b;
+    --bs-border-color: #e2e8f0;
+
+    /* Скругления: 0 = острые углы, 1rem = очень скруглённые */
+    --bs-border-radius: 0.75rem;
+    --bs-border-radius-sm: 0.5rem;
+    --bs-border-radius-lg: 1rem;
+}
+
+/* ============================================
+   КАСТОМНЫЕ СТИЛИ ПОВЕРХ BOOTSTRAP
+   ============================================ */
+
+/* Каскадное появление карточек */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.product-card {
+    animation: fadeInUp 0.5s ease-out backwards;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.05s; }
+.product-card:nth-child(2) { animation-delay: 0.10s; }
+.product-card:nth-child(3) { animation-delay: 0.15s; }
+.product-card:nth-child(4) { animation-delay: 0.20s; }
+.product-card:nth-child(5) { animation-delay: 0.25s; }
+.product-card:nth-child(6) { animation-delay: 0.30s; }
+.product-card:nth-child(7) { animation-delay: 0.35s; }
+.product-card:nth-child(8) { animation-delay: 0.40s; }
+
+/* Зум картинки при наведении */
+.product-image {
+    overflow: hidden;
+}
+
+.product-image img {
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.06);
+}
+
+/* Звёзды рейтинга */
+.product-rating .star {
+    color: #ddd;
+    font-size: 1rem;
+}
+
+.product-rating .star.filled {
+    color: #f1c40f;
+}
+
+/* Старая цена — зачёркнута */
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.95rem;
+}
+
+/* Уважение к настройкам пользователя */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* === ПЕРЕОПРЕДЕЛЕНИЕ КНОПОК === */
+.btn-primary {
+    --bs-btn-bg: #6366f1;
+    --bs-btn-border-color: #6366f1;
+    --bs-btn-hover-bg: #4f46e5;
+    --bs-btn-hover-border-color: #4f46e5;
+    --bs-btn-active-bg: #4338ca;
+    --bs-btn-active-border-color: #4338ca;
+}
+
+.btn-success {
+    --bs-btn-bg: #10b981;
+    --bs-btn-border-color: #10b981;
+    --bs-btn-hover-bg: #059669;
+    --bs-btn-hover-border-color: #059669;
+    --bs-btn-active-bg: #047857;
+    --bs-btn-active-border-color: #047857;
+}
+
+.btn-danger {
+    --bs-btn-bg: #ef4444;
+    --bs-btn-border-color: #ef4444;
+    --bs-btn-hover-bg: #dc2626;
+    --bs-btn-hover-border-color: #dc2626;
+    --bs-btn-active-bg: #b91c1c;
+    --bs-btn-active-border-color: #b91c1c;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #6366f1;
+    --bs-btn-border-color: #6366f1;
+    --bs-btn-hover-bg: #6366f1;
+    --bs-btn-hover-border-color: #6366f1;
+}
+
+.btn-outline-danger {
+    --bs-btn-color: #ef4444;
+    --bs-btn-border-color: #ef4444;
+    --bs-btn-hover-bg: #ef4444;
+    --bs-btn-hover-border-color: #ef4444;
+}
+
+/* === НАВБАР === */
+.navbar.bg-dark {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%) !important;
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+    letter-spacing: 0.3px;
+}
+
+.navbar .nav-link {
+    transition: color 0.2s;
+    font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+    color: #a5b4fc !important;
+}
+
+/* Бейдж корзины */
+.navbar .badge.bg-warning {
+    background-color: #f59e0b !important;
+    color: #1f2937 !important;
+}
+
+/* === ПОДВАЛ === */
+footer.bg-dark {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%) !important;
+}
+
+/* Страница отдельного товара */
+.product-detail-image {
+    position: relative;
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.product-detail-image img {
+    transition: transform 0.4s ease;
+}
+
+.product-detail-image:hover img {
+    transform: scale(1.02);
+}
+
+/* Ссылка на карточке не мешает кнопке "В корзину" */
+.product-card a.text-dark {
+    transition: color 0.2s;
+}
+
+.product-card a.text-dark:hover {
+    color: #6366f1 !important;
+}
+
+/* Хлебные крошки */
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: #6366f1;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* Страница логина — центрирование формы */
+body.d-flex {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+}
