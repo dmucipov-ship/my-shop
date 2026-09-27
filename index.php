@@ -317,8 +317,8 @@ if (!empty($_SESSION['cart'])) {
                         <option value="title_desc" <?php echo $sort === 'title_desc' ? 'selected' : ''; ?>>Я-А</option>
                     </select>
                 </div>
-                <div class="col-12 col-md-2 d-flex align-items-end">
-                    <button type="submit" class="btn btn-primary w-100">Применить</button>
+                <div class="col-12 col-md-4 d-flex align-items-end mt-2 mt-md-0">
+                    <button type="submit" class="btn btn-primary w-100 text-nowrap">Применить</button>
                 </div>
             </div>
         </div>
