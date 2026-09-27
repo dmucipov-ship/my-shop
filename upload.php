@@ -98,9 +98,19 @@ function deleteUploadedImage(?string $filename): void
  */
 function productImageUrl(?string $filename, string $title = ''): string
 {
-    if ($filename && is_file(UPLOAD_DIR . basename($filename))) {
-        return UPLOAD_URL . rawurlencode($filename);
+    // Если filename задан — проверяем по относительному пути от UPLOAD_DIR
+    if ($filename) {
+        // Внешний URL
+        if (str_starts_with($filename, 'http')) {
+            return $filename;
+        }
+        // Локальный файл
+        if (is_file(UPLOAD_DIR . $filename)) {
+            return UPLOAD_URL . $filename;
+        }
     }
-    // Заглушка
-    return 'https://placehold.co/400x250/EEE/31343C?text=' . urlencode($title);
+
+    // Заглушка, если ничего не подошло
+    $seed = urlencode(mb_substr($title, 0, 20));
+    return "https://picsum.photos/seed/{$seed}/400/250";
 }
